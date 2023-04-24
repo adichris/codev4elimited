@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+        <meta name="description" content="{% block description %}This organization is a consulting company for many projects.
+        We consult for Mining companies, oil and gas, etc.{% endblock %}" href="{{ request.path }}">
+        <meta>
+        {% if metaAuther %}
+            <meta name="auther" content="{{ metaAuther }}">
+        {% endif %}
+        <meta property="og:url" content="{{ request.path }}">
+
+        {% block meta %}
+            <meta property="og:title" content="{{ title }}">
+
+        {% endblock %}
+        <title>{% if title %}{{ title }} - {% endif %} CoDev 4E Ltd</title>
+        <link rel="shortcut icon" href="{% static 'icons/favico.ico.jpg' %}" type="image/x-icon">
+        <link rel="stylesheet" href="{% static 'bulma-0.9.4/bulma/css/bulma.min.css' %}">
+        {% block header %}
+
+        {% endblock %}
+        <style>
+            * {
+                font-family: 'cambo', 'Poppins' ,'sans-serif';
+            }
+        </style>
+    </head>
+    <body class="has-navbar-fixed-top">
+        {% include 'base/navbar/base.html' %}
+        {% block container %}{% endblock %}
+        {% include 'base/footer.html' %}
+        {% block scripts %}{% endblock %}
+    </body>
+
+</html>

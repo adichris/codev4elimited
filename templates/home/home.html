@@ -1,0 +1,49 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+
+{% block container %}
+    <section class="hero is-success is-halfheight"
+             style="
+                 background-image: url('{% static 'images/amy-hirschi-uwpo02K55zw-unsplash.jpg' %}');
+                 background-position: center; background-size:cover ;
+                 ">
+      <div class="hero-body">
+        <div class="column is-half mx-auto is-rounded p-3 " style=" background: rgba(0,0,0,0.24);">
+            <h1 class="title is-size-1 has-text-weight-bold has-text-centered">CoDev 4E Ltd</h1>
+             <p class="subtitle is-5 has-text-weight-medium">
+                 This organization is a consulting company for many projects.
+                 We consult for Mining companies, oil and gas, etc.
+            </p>
+        </div>
+      </div>
+    </section>
+
+
+    <div class="container my-4">
+        <div class="block my-4">
+            <p class="title is-4">
+                CoDev 4E Ltd.’s Profile and Relevant Experience
+            </p>
+            <hr>
+        </div>
+        <div class="columns is-multiline is-3">
+
+            {% for service in services %}
+                <div class="column is-half-tablet  is-one-third-desktop  is-one-quarter-fullhd">
+                    <div class="box is-rounded">
+                        <figure class="image">
+                            <img src="{{ service.flyer.url }}" alt="{{ service.description }}">
+                        </figure>
+                        <div class="block">
+                            <h3 class="title has-text-primary-dark is-5 my-4">{{ service.headline }}</h3>
+                            <p class="subtitle is-5 my-4">{{ service.description|truncatechars_html:120 }}</p>
+                            <a class="button is-primary is-light my-4" href="{{ service.get_absolute_url }}">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+{% endblock %}

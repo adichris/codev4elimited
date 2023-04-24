@@ -1,0 +1,32 @@
+{% extends 'base/base.html' %}
+
+{% block container %}
+    <div class="container mt-4">
+        <div class="columns">
+            <div class="column">
+                 <figure class="image my-4">
+                       <img src="{{ service.flyer.url }}" alt="" style="width: 100%; max-height: 80vh; object-fit: contain; object-position: center">
+                   </figure>
+                <h1 class="title is-size-4 has-text-weight-bold has-text-centered">{{ service }}</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+               {% for content in contents %}
+                        {% if content.image %}
+                           <figure class="image my-4">
+                               <img src="{{ content.image.url }}" alt="" style="width: 100%; max-height: 80vh; object-fit: contain; object-position: center">
+                           </figure>
+                       {% endif %}
+                   <div class="content my-4">
+                       {{ content|safe }}
+                    </div>
+
+               {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

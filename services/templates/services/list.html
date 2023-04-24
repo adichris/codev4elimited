@@ -1,0 +1,57 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block container %}
+
+     <section class="hero is-success is-half"
+             style="
+                 background-image: url('{% static 'images/benjamin-child-0sT9YhNgSEs-unsplash.jpg' %}');
+                 background-position: center; background-size:cover ;
+                 ">
+      <div class="hero-body">
+        <div class="column is-half mx-auto is-rounded p-3 " style=" background: rgba(216,235,194,0.62);">
+            <h1 class="title is-size-1 has-text-weight-bold has-text-centered">OUR SERVICES</h1>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+        <div class="column">
+            <div class="box">
+                <form action="" method="get">
+                   <div class="field is-grouped">
+                      <p class="control is-expanded">
+                        <input value="{{ qvalue|default:'' }}" name="qservices" class="input is-primary" type="search" placeholder="find a service" title="find a service">
+                      </p>
+                      <p class="control">
+                        <button type="submit" class="button is-primary">
+                          Search
+                        </button>
+                      </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container my-6">
+
+           <div class="columns is-multiline is-3">
+            {% for service in service_list %}
+                <div class="column is-half-tablet  is-one-third-desktop  is-one-quarter-fullhd">
+                    <div class="box is-rounded">
+                        <figure class="image">
+                            <img src="{{ service.flyer.url }}" alt="{{ service.description }}">
+                        </figure>
+                        <div class="block">
+                            <h3 class="title has-text-primary-dark is-5 my-4">{{ service.headline }}</h3>
+                            <p class="subtitle is-5 my-4">{{ service.description|truncatechars_html:120 }}</p>
+                            <a class="button is-primary is-light my-4" href="{{ service.get_absolute_url }}">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+{% endblock %}

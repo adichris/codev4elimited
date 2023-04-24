@@ -1,0 +1,12 @@
+{% extends "admin/base.html" %}
+{% load static %}
+{% block extrahead %}
+    <link rel="shortcut icon" href="{% static 'icons/favico.ico.jpg' %}" type="image/x-icon">
+{% endblock %}
+{% block title %}{{ title }} | CoDev 4E Ltd {% endblock %}
+
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}">CoDev 4E Ltd</a></h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

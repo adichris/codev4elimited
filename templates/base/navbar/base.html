@@ -1,0 +1,88 @@
+{% load static %}
+{% url 'Services:list' as all_services %}
+{% url 'home' as home %}
+
+<nav class="navbar has-shadow is-fixed-top" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="{{ home }}">
+      <img src="{% static 'icons/shortlogo.jpg' %}" alt="CoDev 4E Ltd" style="height: 3rem !important;max-height: 3rem !important;">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item {% if request.path == home %}has-text-primary-dark{% endif %}" href="{{ home }}" title="CoDev 4E Ltd">
+        HOME - CoDev 4E Ltd
+      </a>
+
+      <a class="navbar-item {% if request.path == all_services %}has-text-primary-dark{% endif %}" href="{{ all_services }}">
+        SERVICES
+      </a>
+
+      <a class="navbar-item">
+        GALLERY
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          ABOUT US
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item">WHO WE ARE</a>
+          <a class="navbar-item">OUR STAFF</a>
+          <a class="navbar-item">LOCATIONS</a>
+          <hr class="navbar-divider">
+          <a class="navbar-item">
+            CONTACT
+          </a>
+        </div>
+      </div>
+
+        <a class="navbar-item">
+        FAQs
+      </a>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button is-primary">
+            <strong>CONTACT US</strong>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+  // Get all "navbar-burger" elements
+  const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+  // Add a click event on each of them
+  $navbarBurgers.forEach( el => {
+    el.addEventListener('click', () => {
+
+      // Get the target from the "data-target" attribute
+      const target = el.dataset.target;
+      const $target = document.getElementById(target);
+
+      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+      el.classList.toggle('is-active');
+      $target.classList.toggle('is-active');
+
+    });
+  });
+
+});
+</script>
