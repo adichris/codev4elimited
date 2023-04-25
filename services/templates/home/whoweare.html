@@ -1,0 +1,56 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block container %}
+
+     <section class="hero is-success is-half"
+             style="
+                 background-image: url('{% static 'images/benjamin-child-0sT9YhNgSEs-unsplash.jpg' %}');
+                 background-position: center; background-size:cover ;
+                 ">
+      <div class="hero-body">
+        <div class="column is-half mx-auto is-rounded p-3 " style=" background: rgba(30,31,34,0.4);">
+            <h1 class="title is-size-1 has-text-weight-bold has-text-centered">WHO WE ARE</h1>
+        </div>
+      </div>
+    </section>
+
+
+    <div class="container my-5">
+        <div class="columns">
+            <div class="column">
+                <div class="content">
+                    <p>
+                        <b>RCS Consult</b> is a fully owned Ghanaian Company duly registered by the Registrar Generals Department
+                        with a Certificate to commence business issued by the Registrar of companies.
+                    </p>
+                    <p>RCS Consult is a Resettlement, Community Development, Grievance Resolution and Compensation Management
+                        Company in Ghana that specialises in land access facilitation and management for mining companies. </p>
+                    <h6>The Company provides professional services such as;</h6>
+                    <ul>
+                        <li>Resettlement planning and implementation and its related issues,
+                        grievance resolution, document controls and data management, socio-economic survey, livelihood Restoration programs,
+                        land access planning and management; farm parcel and land ownership survey prior to land acquisition;</li>
+                        <li>Post moratorium compensation management, compensation negotiations planning and management;</li>
+                        <li>Compensation assessment in accordance with the Minerals and Mining Act and LI 2175;</li>
+                        <li>Land monitoring prior to commencement of operations, </li>
+                    </ul>
+                    <blockquote>
+                        Land management during various phases of mine project development and advisory <a href="{% url 'Services:list' %}">services on all</a>
+                        other land access and compensation issues.</blockquote>
+
+                    <br>
+                    <h6>Mining companies are the main clients of CoDev 4E Ltd.</h6>
+                        <p> though our services are not limited to that.</p>
+                    <h6>Since 2007 the team members of CoDev 4E Ltd. has provided on-site services to multi-national mining companies such as </h6>
+                         <p> Newmont (Ahafo and Akyem), Asanko Gold (Obotan mine projects) and Perseus Mining Ghana Ltd.</p>
+                    <p>
+                        <a href="{% url 'Services:list' %}">The specific consultancy services provided for these Companies included the following:..></a>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

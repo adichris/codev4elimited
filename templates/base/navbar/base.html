@@ -1,6 +1,8 @@
 {% load static %}
 {% url 'Services:list' as all_services %}
 {% url 'home' as home %}
+{% url 'Gallery:list' as gallery_list %}
+{% url 'whoweare' as whoweare %}
 
 <nav class="navbar has-shadow is-fixed-top" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
@@ -25,17 +27,17 @@
         SERVICES
       </a>
 
-      <a class="navbar-item">
+      <a href="{{ gallery_list }}" class="navbar-item {% if request.path == gallery_list %}has-text-primary-dark{% endif %}">
         GALLERY
       </a>
 
       <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
+        <a class="navbar-link {% if request.path == whoweare %} has-text-primary-dark {% endif %}">
           ABOUT US
         </a>
 
         <div class="navbar-dropdown">
-          <a class="navbar-item">WHO WE ARE</a>
+          <a class="navbar-item" href="{{ whoweare }}">WHO WE ARE</a>
           <a class="navbar-item">OUR STAFF</a>
           <a class="navbar-item">LOCATIONS</a>
           <hr class="navbar-divider">

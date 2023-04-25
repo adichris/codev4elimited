@@ -1,0 +1,40 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block container %}
+
+     <section class="hero is-success is-half"
+             style="
+                 background-image: url('{% static 'images/benjamin-child-0sT9YhNgSEs-unsplash.jpg' %}');
+                 background-position: center; background-size:cover ;
+                 ">
+      <div class="hero-body">
+        <div class="column is-half mx-auto is-rounded p-3 " style=" background: rgba(30,31,34,0.4);">
+            <h1 class="title is-size-1 has-text-weight-bold has-text-centered">GALLERY</h1>
+        </div>
+      </div>
+    </section>
+
+    <div class="container my-5">
+        <div class="tile is-ancestor">
+           {% for gallery in gallery_list %}
+                 <div class="tile is-parent is-4">
+                    <figure class="image js-modal-trigger" data-target="modal-js-imgModal" style="cursor: zoom-in">
+                        <img onclick="setModalImage('{{ gallery.image.url }}')" src="{{ gallery.image.url }}" alt="{{ gallery.title }}">
+                       {% if galllery.title %}
+                            <p class="p-3">{{ gallery.title }}</p>
+                       {% endif %}
+                    </figure>
+                </div>
+           {% endfor %}
+        </div>
+    </div>
+
+    {% include 'gallery/imageModal.html' %}
+    <script src="{% static 'bulma-0.9.4/bulma/js/scripts.js' %}"></script>
+    <script>
+    const imgParent = document.getElementById('modalImageparent')
+        function setModalImage(imgElm) {
+            imgParent.src = imgElm
+        }
+    </script>
+{% endblock %}

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "crispy_forms",
     'account',
     'tinymce',
+    'gallery.apps.GalleryConfig',
 
 ]
 
