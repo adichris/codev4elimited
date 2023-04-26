@@ -3,11 +3,14 @@
 {% url 'home' as home %}
 {% url 'Gallery:list' as gallery_list %}
 {% url 'whoweare' as whoweare %}
+{% url 'contactus' as contactus %}
+{% url 'FAQs:list' as faqs_list %}
 
 <nav class="navbar has-shadow is-fixed-top" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="{{ home }}">
-      <img src="{% static 'icons/shortlogo.jpg' %}" alt="CoDev 4E Ltd" style="height: 3rem !important;max-height: 3rem !important;">
+    <a class="navbar-item has-text-primary-dark" href="{{ home }}">
+        <img src="{% static 'icons/shortlogo.jpg' %}" alt="CoDev 4E Ltd" style="height: 2rem !important;max-height: 3rem !important;">
+        CoDev 4E Ltd
     </a>
 
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -20,11 +23,15 @@
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
       <a class="navbar-item {% if request.path == home %}has-text-primary-dark{% endif %}" href="{{ home }}" title="CoDev 4E Ltd">
-        HOME - CoDev 4E Ltd
+        HOME
       </a>
 
       <a class="navbar-item {% if request.path == all_services %}has-text-primary-dark{% endif %}" href="{{ all_services }}">
         SERVICES
+      </a>
+
+      <a class="navbar-item " href="">
+        PROJECTS
       </a>
 
       <a href="{{ gallery_list }}" class="navbar-item {% if request.path == gallery_list %}has-text-primary-dark{% endif %}">
@@ -32,22 +39,22 @@
       </a>
 
       <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link {% if request.path == whoweare %} has-text-primary-dark {% endif %}">
+        <a class="navbar-link {% if request.path == whoweare or request.path == location or request.path == contactus %} has-text-primary-dark {% endif %}">
           ABOUT US
         </a>
 
         <div class="navbar-dropdown">
           <a class="navbar-item" href="{{ whoweare }}">WHO WE ARE</a>
-          <a class="navbar-item">OUR STAFF</a>
-          <a class="navbar-item">LOCATIONS</a>
+          <a class="navbar-item">OUR TEAM</a>
+          <a class="navbar-item">OUR APPROACH</a>
           <hr class="navbar-divider">
-          <a class="navbar-item">
+          <a class="navbar-item" href="{{ contactus }}">
             CONTACT
           </a>
         </div>
       </div>
 
-        <a class="navbar-item">
+        <a class="navbar-item {% if request.path == faqs_list %}has-text-primary-dark{% endif %}" href="{{ faqs_list }}">
         FAQs
       </a>
     </div>
@@ -55,7 +62,7 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a class="button is-primary">
+          <a class="button is-primary" href="{{ contactus }}">
             <strong>CONTACT US</strong>
           </a>
         </div>

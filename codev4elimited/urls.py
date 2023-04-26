@@ -28,6 +28,7 @@ urlpatterns = [
     path('tinymce/', include('tinymce.urls')),
     path('services/', include('services.urls')),
     path('gallery/', include('gallery.urls')),
+    path('faqs/', include('faq.urls')),
 ]
 
 if settings.DEBUG:

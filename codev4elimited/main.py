@@ -1,5 +1,8 @@
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, CreateView
 from services.models import Service
+from account.models import ContactUs
+from django.shortcuts import reverse
+from account.forms import ContactUsCreationForm
 
 
 class HomePage(TemplateView):
@@ -20,11 +23,23 @@ class WhoWeArePage(TemplateView):
         return ctx
 
 
-class LocationPage(TemplateView):
-    template_name = 'home/whoweare.html'
+class ContactUsPage(CreateView):
+    template_name = 'home/contactus.html'
+    model = ContactUs
+    form_class = ContactUsCreationForm
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
-        ctx['title'] = 'Location'
+        ctx['title'] = 'Contact Us'
+        has_contact = self.request.session.get('has_contact')
+        if has_contact:
+            del self.request.session['has_contact']
+        ctx['has_contacted'] = has_contact
         return ctx
 
+    def get_success_url(self):
+        return reverse('contactus')
+
+    def form_valid(self, form):
+        self.request.session['has_contact'] = True
+        return super().form_valid(form)

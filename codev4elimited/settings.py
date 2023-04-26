@@ -39,16 +39,17 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'services.apps.ServicesConfig',
     "crispy_forms",
+    "crispy_bulma",
     'account',
     'tinymce',
     'gallery.apps.GalleryConfig',
+    'faq.apps.FaqConfig',
 
 ]
 
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_ALLOWED_TEMPLATE_PACKS = ("bulma",)
 
-CRISPY_TEMPLATE_PACK = "bootstrap5"
-
+CRISPY_TEMPLATE_PACK = "bulma"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

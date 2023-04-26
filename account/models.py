@@ -1,7 +1,7 @@
 import os
 import random
 import string
-
+from tinymce.models import HTMLField
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, UserManager
 from django.db import models
 from django.utils.text import slugify
@@ -119,3 +119,19 @@ def user_slugify(sender, instance, **kwargs):
 
 
 models.signals.pre_save.connect(user_slugify, sender=User)
+
+
+class ContactUs(models.Model):
+    name = models.CharField(max_length=120, null=True, blank=True)
+    email = models.EmailField()
+    phone = models.CharField(max_length=120, null=True, blank=True)
+    company = models.CharField(max_length=120, null=True, blank=True)
+    message = HTMLField()
+    date_created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.email
+
+    class Meta:
+        verbose_name = 'Contact Us'
+        verbose_name_plural = 'Contact Us List'

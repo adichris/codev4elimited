@@ -3,8 +3,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.core.exceptions import ValidationError
-
-from .models import User
+from .models import User, ContactUs
 
 
 class UserCreationForm(forms.ModelForm):
@@ -63,4 +62,11 @@ class UserAdmin(BaseUserAdmin):
     filter_horizontal = ()
 
 
+class ContactUsAdmin(admin.ModelAdmin):
+    list_display = ['name', 'email', 'phone', 'company', 'date_created']
+    date_hierarchy = 'date_created'
+    search_fields = ['company']
+
+
+admin.site.register(ContactUs, ContactUsAdmin)
 admin.site.register(User, UserAdmin)

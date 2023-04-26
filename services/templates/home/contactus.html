@@ -1,0 +1,88 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block container %}
+
+     <section class="hero is-success is-half"
+             style="
+                 background-image: url('{% static 'images/benjamin-child-0sT9YhNgSEs-unsplash.jpg' %}');
+                 background-position: center; background-size:cover ;
+                 ">
+      <div class="hero-body">
+        <div class="column is-half mx-auto is-rounded p-3  is-flex is-flex-direction-column is-justify-content-center align-center is-rounded">
+             <img src="{% static 'icons/longLogo.png' %}" alt="CoDev 4E Ltd" style="height: 10em; width: auto; object-fit: contain; object-position: center; opacity: 50%;">
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+                <div class="block">
+                    <h4></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+
+        <div class="columns my-5">
+            <div class="column is-half-desktop is-half-tablet is-three-quarters-mobile mx-auto">
+                <div class="content">
+                    <h5 class="title is-4"> {{ "CoDev 4E Ltd Contact Details" }} </h5>
+                <ul>
+                    <li><strong>Address</strong> <span>P. O. Box LG 944, Legon, Accra, Ghana</span></li>
+                    <li><strong>Address</strong> <span>4 Ho Avenue Edlorm Estate </span></li>
+                    <li><strong>City</strong> <span>Accra</span></li>
+                    <li><strong>Digital Address</strong> <a href="https://www.google.com/maps/dir//5.7866615,-0.1403392/@0,0,22z/data=!4m2!4m1!3e0?hl=en" class="link" target="_blank">GM 240-7502</a></li>
+                </ul>
+                    <p>EMAIL:
+              <a href="mailto:{{ 'CODEV4E@GMAlL.COM'|lower }}" > {{ 'CODEV4E@GMAiL.COM'|lower }}</a> <span>|</span>
+              <a href="mailto:EVELYNGHAS@GMAIL.COM" class="">{{ 'EVELYNGHAS@GMAIL.COM'|lower }}</a>
+
+              <p>PHONE:<a href="tel:+233509055110" > (+233) 509-055-110</a></p>
+              <p>PHONE:<a href="tel:+233242545952" > (+233) 242-545-952</a></p>
+                    <hr>
+                    <p>Follow Us on</p>
+                    <div class="is-flex align-center is-justify-content-start is-spaced">
+                        <a href="https://www.youtube.com" class="text-center mx-2"  target="_blank">
+                            <img width="48" height="48" src="{% static 'icons/youtube_play_button_48px.png' %}" alt="">
+                            <br>
+                            <span>Youtube</span>
+                        </a>
+                        <a href="https://www.linkedin.com" class="text-center mx-2"  target="_blank">
+                          <img width="48" height="48" src="{% static 'icons/linkedin_48px_1.png' %}" alt="">
+                            <br>
+                            <span>LinkedIn</span>
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="column is-half-desktop is-half-tablet is-three-quarters-mobile mx-auto">
+                 <h5 class="title is-4"> {{ "get in touch"|title }} </h5>
+                <hr>
+                {% if has_contacted %}
+                    <article class="message is-success">
+                      <div class="message-header">
+                        <p>Thank you for your message! </p>
+                        <button class="delete" aria-label="delete"></button>
+                      </div>
+                      <div class="message-body">
+                          We have received it and will respond as soon as possible.
+                      </div>
+                    </article>
+                {% endif %}
+                {% crispy form %}
+                <p class="subtitle my-3">Our team will use the information you provide on this form to respond to your inquiry.</p>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

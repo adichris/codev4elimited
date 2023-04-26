@@ -15,9 +15,9 @@
     </section>
 
     <div class="container my-5">
-        <div class="tile is-ancestor">
+        <div class="columns is-multiline is-3">
            {% for gallery in gallery_list %}
-                 <div class="tile is-parent is-4">
+                 <div class="column is-half-tablet  is-one-third-desktop  is-one-quarter-fullhd">
                     <figure class="image js-modal-trigger" data-target="modal-js-imgModal" style="cursor: zoom-in">
                         <img onclick="setModalImage('{{ gallery.image.url }}')" src="{{ gallery.image.url }}" alt="{{ gallery.title }}">
                        {% if galllery.title %}

@@ -18,7 +18,7 @@
             <meta property="og:title" content="{{ title }}">
 
         {% endblock %}
-        <title>{% if title %}{{ title }} - {% endif %} CoDev 4E Ltd</title>
+        <title>{% if title %}{{ title }} &bullet; {% endif %} CoDev 4E Ltd</title>
         <link rel="shortcut icon" href="{% static 'icons/favico.ico.jpg' %}" type="image/x-icon">
         <link rel="stylesheet" href="{% static 'bulma-0.9.4/bulma/css/bulma.min.css' %}">
         {% block header %}
@@ -27,6 +27,12 @@
         <style>
             * {
                 font-family: 'cambo', 'Poppins' ,'sans-serif';
+            }
+            body {
+                background-image: url({% static 'icons/fadedLogo.jpg' %});
+                background-size: contain;
+                background-position: center;
+                background-attachment: scroll;
             }
         </style>
     </head>
