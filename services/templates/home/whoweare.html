@@ -1,6 +1,23 @@
 {% extends 'base/base.html' %}
 {% load static %}
+{% block description %}
+    CoDev 4E Limited is a forward thinking and an innovative Company, whose core area of operation
+    include land access, resettlement, livelihoods, grievance management, community development and stakeholder engagement.
+    The firm is dedicated to helping purpose driven Companies plan and implement resettlement and community related
+    development programmes geared towards creating positive change and yielding a win-win situation for project proponents
+    and affected communities.
+{% endblock %}
 
+{% block meta %}
+    <meta property="og:title" content="About CoDev 4E Limited ">
+    <meta property="og:description" content="CoDev 4E Limited is a forward thinking and an innovative Company, whose core area of operation
+                            include land access, resettlement, livelihoods, grievance management, community development and stakeholder engagement.
+                            The firm is dedicated to helping purpose driven Companies plan and implement resettlement and community related
+                            development programmes geared towards creating positive change and yielding a win-win situation for project proponents
+                            and affected communities. ">
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_GB" />
+{% endblock %}
 {% block container %}
 
      <section class="hero is-success is-half"
@@ -20,33 +37,56 @@
         <div class="columns">
             <div class="column">
                 <div class="content">
-                    <p>
-                        <b>CoDev 4E Ltd</b> is a fully owned Ghanaian Company duly registered by the Registrar Generals Department
-                        with a Certificate to commence business issued by the Registrar of companies.
-                    </p>
-                    <p>CoDev 4E Ltd is a Resettlement, Community Development, Grievance Resolution and Compensation Management
-                        Company in Ghana that specialises in land access facilitation and management for mining companies. </p>
-                    <h6>The Company provides professional services such as;</h6>
-                    <ul>
-                        <li>Resettlement planning and implementation and its related issues,
-                        grievance resolution, document controls and data management, socio-economic survey, livelihood Restoration programs,
-                        land access planning and management; farm parcel and land ownership survey prior to land acquisition;</li>
-                        <li>Post moratorium compensation management, compensation negotiations planning and management;</li>
-                        <li>Compensation assessment in accordance with the Minerals and Mining Act and LI 2175;</li>
-                        <li>Land monitoring prior to commencement of operations, </li>
-                    </ul>
-                    <blockquote>
-                        Land management during various phases of mine project development and advisory <a href="{% url 'Services:list' %}">services on all</a>
-                        other land access and compensation issues.</blockquote>
+                   <div class="box has-background-success-light">
+                        <h3 class="has-text-success-dark">About CoDev 4E Limited </h3>
+{#                    TODO Write about the core values of the organisatoin #}
+                        <p>
+                            CoDev 4E Limited is a forward thinking and an innovative Company, whose core area of operation
+                            include land access, resettlement, livelihoods, grievance management, community development and stakeholder engagement.
+                            The firm is dedicated to helping purpose driven Companies plan and implement resettlement and community related
+                            development programmes geared towards creating positive change and yielding a win-win situation for project proponents
+                            and affected communities.  </p>
 
-                    <br>
-                    <h6>Mining companies are the main clients of CoDev 4E Ltd.</h6>
-                        <p> though our services are not limited to that.</p>
-                    <h6>Since 2007 the team members of CoDev 4E Ltd. has provided on-site services to multi-national mining companies such as </h6>
-                         <p> Newmont (Ahafo and Akyem), Asanko Gold (Obotan mine projects) and Perseus Mining Ghana Ltd.</p>
-                    <p>
-                        <a href="{% url 'Services:list' %}">The specific consultancy services provided for these Companies included the following:..></a>
-                    </p>
+                            <p>The firm comprises of a team of experts with over 25 years in-depth knowledge and hands-on
+                                experience in planning and implementing resettlement, livelihoods, community engagement and
+                                community development programmes.</p>
+
+                   </div>
+
+                   <div class="box has-background-success-light">
+                        <h3 class="has-text-success-dark">Core Values</h3>
+                        <p>CoDev 4E is guided by the following core values that guide our internal and external relations;</p>
+                        <ul>
+                            <li>Effectiveness </li>
+                            <li>Efficiency</li>
+                            <li>Empowerment</li>
+                            <li>Enhancement</li>
+                        </ul>
+                   </div>
+
+                    <div class="box has-background-success-light">
+                        <h3 class="has-text-success-dark">Our Mission </h3>
+                        <p>To organize resettlement and related activities on a sustainable basis to the satisfaction of the communities and project proponent.</p>
+                    </div>
+
+
+                   <div class="box  has-background-success-light">
+                        <h3 class="has-text-success-dark">Our Vision </h3>
+                        <p>To ensure a win-win situation for project proponents and host communities.</p>
+
+                   </div>
+
+                    <div class="box has-background-success-light">
+                        <h3 class="has-text-success-dark">Our Aims and Aspirations </h3>
+                        <ul>
+                            <li>To effectively provide top-notch resettlement and community development and any other related services acceptable to our clients</li>
+                            <li>To empower communities to realize their dreams and aspirations</li>
+                            <li>To create enabling environment for communities to freely and fully participate in development programmes</li>
+                            <li>To efficiently use the resources available to achieve the desired results with integrity</li>
+                            <li>To improve upon what we do step-by-step</li>
+                        </ul>
+                    </div>
+
                 </div>
 
             </div>

@@ -1,0 +1,64 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block header %}
+    <style>
+        .img-fit {
+            object-fit: contain;
+            object-position: center;
+        }
+    </style>
+{% endblock %}
+{% block description %}
+    {{ team.description }}
+{% endblock %}
+
+{% block meta %}
+    <meta property="og:title" content="{{ team.profile }}, {{ team.position|default:'' }}">
+    <meta property="og:description" content="{{ team.description }}">
+    <meta property="og:image" content="{% if team.picture %}{{ team.picture.url }}{% endif %}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:image:alt" content="{{ team.profile }}" />
+{% endblock %}
+{% block container %}
+
+   <div class="container">
+       <div class="my-5 columns ">
+           <div class="column">
+               <nav class="breadcrumb px-4" aria-label="breadcrumbs">
+                   <ul>
+                       <li><a href="{% url 'home' %}">Home</a></li>
+                       <li><a href="{% url 'our-team' %}">Our Team</a></li>
+                       <li class="is-active"><a aria-current="page" href="">{{ team.profile }}</a></li>
+                   </ul>
+               </nav>
+           </div>
+       </div>
+
+
+       <div class="my-5 columns box is-justify-content-center is-align-items-center">
+
+           <div class="column is-half-tablet">
+               <figure class="image">
+                    {% if team.picture %}
+                        <img src="{{ team.picture.url }}" alt="{{ team.profile }} picture" class="img-fit">
+                    {% else %}
+                        <img src="{% static 'icons/shortlogo.jpg' %}" alt="{{ team.profile }} picture" class="img-fit">
+                    {% endif %}
+               </figure>
+           </div>
+
+           <div class="column is-half-tablet ">
+               <div class="content px-4">
+                   <h4 class="title is-3">{{ team.profile }}</h4>
+                   <p class="subtitle  is-5">{{ team.description }}</p>
+               </div>
+               <div class="content subtitle px-4 is-5">
+                   {{ team.note|safe }}
+               </div>
+           </div>
+
+       </div>
+   </div>
+
+{% endblock %}

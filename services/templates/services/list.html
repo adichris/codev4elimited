@@ -43,7 +43,7 @@
                             <img src="{{ service.flyer.url }}" alt="{{ service.description }}">
                         </figure>
                         <div class="block">
-                            <h3 class="title has-text-primary-dark is-5 my-4">{{ service.headline }}</h3>
+                            <a href="{{ service.get_absolute_url }}" style="text-decoration: none"><h3 class="title has-text-primary-dark is-5 my-4">{{ service.headline }}</h3></a>
                             <p class="subtitle is-5 my-4">{{ service.description|truncatechars_html:120 }}</p>
                             <a class="button is-primary is-light my-4" href="{{ service.get_absolute_url }}">Read More</a>
                         </div>

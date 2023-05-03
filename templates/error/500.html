@@ -1,0 +1,15 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'error/500_style.css' %}">
+{% endblock %}
+{% block container %}
+
+        <div id="error" style="margin-top: 20vh; margin-bottom: 20vh">
+            <div id="box"></div>
+              <h3>ERROR 500</h3>
+              <p>Things are a little <span>unstable</span> here</p>
+              <p><a href="{% url 'home' %}" class="" style="text-decoration: none">I suggest come back later</a></p>
+        </div>
+{% endblock %}

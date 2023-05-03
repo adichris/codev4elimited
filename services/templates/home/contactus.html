@@ -66,21 +66,23 @@
 
 
             <div class="column is-half-desktop is-half-tablet is-three-quarters-mobile mx-auto">
-                 <h5 class="title is-4"> {{ "get in touch"|title }} </h5>
-                <hr>
-                {% if has_contacted %}
-                    <article class="message is-success">
-                      <div class="message-header">
-                        <p>Thank you for your message! </p>
-                        <button class="delete" aria-label="delete"></button>
-                      </div>
-                      <div class="message-body">
-                          We have received it and will respond as soon as possible.
-                      </div>
-                    </article>
-                {% endif %}
-                {% crispy form %}
-                <p class="subtitle my-3">Our team will use the information you provide on this form to respond to your inquiry.</p>
+                <div class="box">
+                     <h5 class="title is-4"> {{ "get in touch"|title }} </h5>
+                    <hr>
+                    {% if has_contacted %}
+                        <article class="message is-success">
+                          <div class="message-header">
+                            <p>Thank you for your message! </p>
+                            <button class="delete" aria-label="delete"></button>
+                          </div>
+                          <div class="message-body">
+                              We have received it and will respond as soon as possible.
+                          </div>
+                        </article>
+                    {% endif %}
+                    {% crispy form %}
+                    <p class="subtitle my-3">Our team will use the information you provide on this form to respond to your inquiry.</p>
+                </div>
             </div>
         </div>
     </div>

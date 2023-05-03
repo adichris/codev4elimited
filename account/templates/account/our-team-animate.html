@@ -1,0 +1,64 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block header %}
+    <link rel="stylesheet" href="{% static 'our-team-animate/card.css' %}">
+{% endblock %}
+{% block description %}
+    Our team members
+{% endblock %}
+{% block container %}
+
+     <section class="hero is-success is-half"
+             style="
+                 background-image: url('{% static 'images/benjamin-child-0sT9YhNgSEs-unsplash.jpg' %}');
+                 background-position: center; background-size:cover ;
+                 ">
+      <div class="hero-body">
+        <div class="column is-half mx-auto is-rounded p-3 " style=" background: rgba(30,31,34,0.4);">
+            <h1 class="title is-size-1 has-text-weight-bold has-text-centered">{{ title|upper }}</h1>
+        </div>
+      </div>
+    </section>
+    <div class="container">
+               <div class="my-5 columns ">
+           <div class="column">
+               <nav class="breadcrumb px-4" aria-label="breadcrumbs">
+                   <ul>
+                       <li><a href="{% url 'home' %}">Home</a></li>
+                       <li class="is-active"><a aria-current="page" href="">Our Team</a></li>
+                   </ul>
+               </nav>
+           </div>
+       </div>
+
+    </div>
+
+    <div class="flip-card-content content  mt-4"
+         style="
+         font-size: 18px;
+          line-height: 1.5;
+          font-weight: 300;
+">
+      <h1 class="heading">MEET OUR TEAM</h1>
+      <p class="description">Check our awesome team members</p>
+
+
+
+        {% for team in team_list %}
+            <div class="flip-card">
+                <div class="front" style="background-image: url({% if team.picture %}{{ team.picture.url }}{% else %}{% static 'icons/shortlogo.jpg' %}{% endif %} )">
+                  <p style="text-shadow: 0 0 6px black;">{{ team.profile }}</p>
+                </div>
+                <div class="back">
+                  <div>
+                    <p>{{ team.description|truncatechars:150 }}</p>
+                    <a href="{{ team.get_absolute_path }}" class="button">Read More</a>
+                  </div>
+                </div>
+            </div>
+
+        {% endfor %}
+
+
+    </div>
+{% endblock %}

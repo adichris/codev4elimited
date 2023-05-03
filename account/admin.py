@@ -3,7 +3,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.core.exceptions import ValidationError
-from .models import User, ContactUs
+from .models import User, ContactUs, Team
 
 
 class UserCreationForm(forms.ModelForm):
@@ -34,7 +34,7 @@ class UserChangeForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'picture', 'email', 'password', 'is_active', 'is_admin')
+        fields = ('first_name', 'last_name', 'email', 'password', 'is_active', 'is_admin')
 
 
 class UserAdmin(BaseUserAdmin):
@@ -46,7 +46,7 @@ class UserAdmin(BaseUserAdmin):
     list_filter = ('is_admin',)
     fieldsets = (
         ("Credential", {'fields': ('phone_number', 'password')}),
-        ('Personal info', {'classes': ('wide',), 'fields': ('email', 'first_name', 'last_name', 'picture')}),
+        ('Personal info', {'classes': ('wide',), 'fields': ('email', 'first_name', 'last_name', )}),
         ('Permissions', {'fields': ('is_admin', 'is_staff')}),
         ('Status', {'fields': ('last_login', 'date_joined')}),
     )
@@ -68,5 +68,12 @@ class ContactUsAdmin(admin.ModelAdmin):
     search_fields = ['company']
 
 
+class TeamAdmin(admin.ModelAdmin):
+    list_display = ['profile', 'position', 'description']
+    search_fields = ['profile']
+    search_help_text = 'search team by profile'
+
+
 admin.site.register(ContactUs, ContactUsAdmin)
 admin.site.register(User, UserAdmin)
+admin.site.register(Team, TeamAdmin)

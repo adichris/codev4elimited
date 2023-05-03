@@ -10,6 +10,7 @@ def upload_gallery_image(instance, filename):
 class Gallery(models.Model):
     image = models.ImageField()
     title = models.CharField(max_length=120, null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
     slug = models.SlugField(null=True, blank=True)
     tag = models.CharField(null=True, blank=True, max_length=120)
 

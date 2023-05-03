@@ -1,8 +1,33 @@
 {% extends 'base/base.html' %}
 
+{% block description %} {{ service.description }} {% endblock %}
+
+{% block meta %}
+    <meta property="og:title" content="{{ service.headline }}">
+    <meta property="og:description" content="{{ service.description }}">
+    <meta property="og:image" content="{{ service.flyer.url }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:image:alt" content="{{ service.headline }}" />
+{% endblock %}
+
 {% block container %}
+
+
     <div class="container mt-4">
-        <div class="columns">
+           <div class="my-5 columns ">
+           <div class="column">
+               <nav class="breadcrumb px-4" aria-label="breadcrumbs">
+                   <ul>
+                       <li><a href="{% url 'home' %}">Home</a></li>
+                       <li><a href="{% url 'Services:list' %}">Our Services</a></li>
+                       <li class="is-active"><a aria-current="page" href="">{{ service.headline }}</a></li>
+                   </ul>
+               </nav>
+           </div>
+       </div>
+
+        <div class="columns box">
             <div class="column">
                  <figure class="image my-4">
                        <img src="{{ service.flyer.url }}" alt="" style="width: 100%; max-height: 80vh; object-fit: contain; object-position: center">
@@ -12,8 +37,8 @@
         </div>
     </div>
 
-    <div class="container">
-        <div class="columns">
+    <div class="container mb-6">
+        <div class="columns box">
             <div class="column">
                {% for content in contents %}
                         {% if content.image %}

@@ -4,13 +4,14 @@
 {% url 'Gallery:list' as gallery_list %}
 {% url 'whoweare' as whoweare %}
 {% url 'contactus' as contactus %}
+{% url 'our-team' as ourteam %}
 {% url 'FAQs:list' as faqs_list %}
 
 <nav class="navbar has-shadow is-fixed-top" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item has-text-primary-dark" href="{{ home }}">
         <img src="{% static 'icons/shortlogo.jpg' %}" alt="CoDev 4E Ltd" style="height: 2rem !important;max-height: 3rem !important;">
-        CoDev 4E Ltd
+        <span class="mx-2">CoDev 4E Ltd</span>
     </a>
 
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -39,13 +40,13 @@
       </a>
 
       <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link {% if request.path == whoweare or request.path == location or request.path == contactus %} has-text-primary-dark {% endif %}">
+        <a class="navbar-link {% if request.path == whoweare or request.path == location or request.path == contactus or request.path == ourteam %} has-text-primary-dark {% endif %}">
           ABOUT US
         </a>
 
         <div class="navbar-dropdown">
           <a class="navbar-item" href="{{ whoweare }}">WHO WE ARE</a>
-          <a class="navbar-item">OUR TEAM</a>
+          <a class="navbar-item" href="{{ ourteam }}">OUR TEAM</a>
           <a class="navbar-item">OUR APPROACH</a>
           <hr class="navbar-divider">
           <a class="navbar-item" href="{{ contactus }}">

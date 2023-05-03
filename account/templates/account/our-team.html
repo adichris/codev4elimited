@@ -1,0 +1,64 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block header %}
+    <style>
+        .img-fit {
+            object-fit: cover;
+            object-position: center;
+        }
+    </style>
+{% endblock %}
+{% block description %}
+    Our team members
+{% endblock %}
+{% block container %}
+
+     <section class="hero is-success is-half"
+             style="
+                 background-image: url('{% static 'images/benjamin-child-0sT9YhNgSEs-unsplash.jpg' %}');
+                 background-position: center; background-size:cover ;
+                 ">
+      <div class="hero-body">
+        <div class="column is-half mx-auto is-rounded p-3 " style=" background: rgba(30,31,34,0.4);">
+            <h1 class="title is-size-1 has-text-weight-bold has-text-centered">{{ title|upper }}</h1>
+        </div>
+      </div>
+    </section>
+    <div class="container my-5 px-4">
+        <div class="columns is-multiline">
+            {% for team in team_list %}
+                <div class="column is-one-third-desktop is-half-tablet">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                {% if team.picture %}
+                                    <img src="{{ team.picture.url }}" alt="{{ team.profile }} picture" class="img-fit">
+                                {% else %}
+                                    <img src="{% static 'icons/shortlogo.jpg' %}" alt="{{ team.profile }} picture" class="img-fit">
+                                {% endif %}
+                            </figure>
+                        </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                                <figure class="image is-48x48">
+                                     <img src="{% static 'icons/shortlogo.jpg' %}" alt="{{ team.profile }} picture">
+                                </figure>
+                            </div>
+                            <div class="media-content">
+                                <p class="title is-4">{{ team.profile.get_full_name }}</p>
+                                <p class="subtitle is-6">{{ team.position|title }}</p>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <p>{{ team.description }}</p>
+                            <a href="{{ team.get_absolute_path }}" class="">Read more</a>
+                        </div>
+                    </div>
+                    </div>
+                </div>            
+            {% endfor %}
+            
+        </div>
+    </div>
+{% endblock %}

@@ -22,6 +22,10 @@ from django.conf.urls.static import static
 from .main_urls import main_urlpatterns
 
 
+handler404 = 'account.views.handler404'
+handler500 = 'account.views.handler500'
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(main_urlpatterns)),

@@ -33,12 +33,18 @@
                 background-size: contain;
                 background-position: center;
                 background-attachment: scroll;
+                min-height: 20vh;
             }
         </style>
+    {% block head %}{% endblock %}
     </head>
     <body class="has-navbar-fixed-top">
         {% include 'base/navbar/base.html' %}
         {% block container %}{% endblock %}
+
+
+
+        {% include 'base/floatSocial.html' %}
         {% include 'base/footer.html' %}
         {% block scripts %}{% endblock %}
     </body>

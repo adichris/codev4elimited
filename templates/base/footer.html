@@ -1,18 +1,34 @@
 {% load static %}
-  <footer class="footer  has-background-success-light ">
-      <div class="content has-text-centered">
-          <p>
-              <span>P. O. Box LG 944, Legon, Accra, Ghana</span>
-              &bullet;
-              <span class="">4 Ho Avenue Edlorm Estate, Greater Accra, Ghana</span>
-                &bullet;
-              <span>GM 240-7502</span>
-          </p>
-          <p>EMAIL:
-              <a href="mailto:{{ 'CODEV4E@GMAlL.COM'|lower }}" > {{ 'CODEV4E@GMAiL.COM'|lower }}</a> <span>|</span>
-              <a href="mailto:EVELYNGHAS@GMAIL.COM" class="">{{ 'EVELYNGHAS@GMAIL.COM'|lower }}</a>
+  <footer class="footer  has-background-success-light  is-fullwidth is-flex-grow-5 "
+          style="   width: -webkit-fill-available; width: 100%;">
+    <div class="columns">
+        <div class="column is-half-tablet">
+              <div class="content" style="color:#00221d !important">
+                  <h6 class="title is-4">CoDev 4E Ltd</h6>
+                  <p>P. O. Box LG 944, Legon, Accra, Ghana</p>
+                  <p class="">4 Ho Avenue Edlorm Estate, Greater Accra, Ghana</p>
+                  <p>GM 240-7502</p>
 
-          <p>PHONE:<a href="tel:+233509055110" > (+233) 509-055-110</a></p>
-          <p>PHONE:<a href="tel:+233242545952" > (+233) 242-545-952</a></p>
-      </div>
+                  <p> <span class="fa fa-mail-forward"></span> EMAIL:
+                      <a href="mailto:{{ 'CODEV4E@GMAlL.COM'|lower }}" > {{ 'CODEV4E@GMAiL.COM'|lower }}</a> <span>|</span>
+                      <a href="mailto:EVELYNGHAS@GMAIL.COM" class="">{{ 'EVELYNGHAS@GMAIL.COM'|lower }}</a>
+
+                  <p><span class="fa fa-phone"></span> PHONE:<a href="tel:+233509055110" > (+233) 509-055-110</a></p>
+                  <p><span class="fa fa-phone"></span> PHONE:<a href="tel:+233242545952" > (+233) 242-545-952</a></p>
+              </div>
+        </div>
+
+         <div class="column is-half-tablet">
+            <h6 class="title is-4">Sitemaps</h6>
+             <ul class="content">
+                 <li><a href="{% url 'Services:list' %}" >Services</a></li>
+                 <li><a href="">Project</a></li>
+                 <li><a href="{% url 'Gallery:list' %}">Gallery</a></li>
+                 <li><a href="" >Our Approach</a></li>
+                 <li><a href="{% url 'our-team' %}" >Our Team</a></li>
+                 <li><a href="{% url 'whoweare' %}" >Who We Are</a></li>
+                 <li><a href="{% url 'FAQs:list' %}">Frequently Asked Questions</a></li>
+             </ul>
+         </div>
+    </div>
   </footer>

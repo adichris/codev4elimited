@@ -6,6 +6,7 @@ from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, UserM
 from django.db import models
 from django.utils.text import slugify
 from phonenumber_field.modelfields import PhoneNumberField
+from django.shortcuts import  reverse
 
 
 class UserProfileManager(UserManager):
@@ -50,7 +51,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
-    picture = models.ImageField(upload_to=upload_picture)
     date_joined = models.DateTimeField(auto_now=True)
 
     USERNAME_FIELD = "email"
@@ -103,7 +103,7 @@ def user_slugify(sender, instance, **kwargs):
     if instance.email:
         user_slug = slugify(instance.email.split("@")[0])
     else:
-        user_slug = slugify(instance.first_name, instance.last_name)
+        user_slug = slugify(instance.first_name + '-' + instance.last_name)
     try:
         User.objects.get(slug=user_slug)
     except User.DoesNotExist:
@@ -135,3 +135,24 @@ class ContactUs(models.Model):
     class Meta:
         verbose_name = 'Contact Us'
         verbose_name_plural = 'Contact Us List'
+
+
+class Team(models.Model):
+    picture = models.ImageField(upload_to=upload_picture, null=True, blank=True, )
+    profile = models.OneToOneField(User, null=True, blank=True, on_delete=models.SET_NULL)
+    position = models.CharField(null=True, blank=True, max_length=120)
+    description = models.TextField(null=True, blank=True)
+    note = HTMLField(null=True, blank=True)
+    updated_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.description
+
+    class Meta:
+        verbose_name_plural = 'Our Team'
+        verbose_name = 'Team'
+
+    def get_absolute_path(self):
+        return reverse('our-team-member', kwargs={
+            "slug": self.profile.slug
+        })
